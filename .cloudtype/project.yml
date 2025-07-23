@@ -1,0 +1,12 @@
+name: sim-s-test-backend
+app:
+  env:
+    - name: PYTHONUNBUFFERED
+      value: "1"
+  build:
+    builder: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn app.main:app --host 0.0.0.0 --port 8000
+  ports:
+    - port: 8000
+      protocol: http
